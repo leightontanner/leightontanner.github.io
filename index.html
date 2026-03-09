@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///Users/tannerleighton/Downloads/academic-website%20(2).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanner Leighton</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: #2c2c2c;
+    background: #fafaf8;
+    line-height: 1.7;
+    font-size: 16.5px;
+  }
+
+  a { color: #1a5276; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .layout {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* --- SIDEBAR --- */
+  .sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: #f0efeb;
+    border-right: 1px solid #ddd;
+    padding: 48px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+  }
+
+  .sidebar h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+    color: #1a1a1a;
+  }
+
+  .sidebar .subtitle {
+    font-size: 13.5px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .sidebar nav { margin-bottom: 40px; }
+
+  .sidebar nav a {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    padding: 8px 0;
+    color: #444;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s;
+  }
+
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    color: #1a5276;
+    text-decoration: none;
+  }
+
+  .sidebar nav a.active {
+    font-weight: 600;
+  }
+
+  .sidebar .contact {
+    margin-top: auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.8;
+  }
+
+  .sidebar .contact a { color: #555; }
+
+  /* --- MAIN --- */
+  .main {
+    margin-left: 280px;
+    flex: 1;
+    padding: 56px 64px 80px 64px;
+    max-width: 780px;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .main h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #888;
+    margin-bottom: 24px;
+    margin-top: 48px;
+  }
+
+  .main h2:first-child { margin-top: 0; }
+
+  .main p { margin-bottom: 16px; }
+
+  .main em { font-style: italic; }
+
+  .pub-item {
+    margin-bottom: 20px;
+    padding-left: 16px;
+    border-left: 2px solid #ddd;
+  }
+
+  .pub-item .pub-title {
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .pub-item .pub-meta {
+    font-size: 14.5px;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  .pub-item .pub-abstract {
+    font-size: 14.5px;
+    color: #555;
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  .teaching-item {
+    margin-bottom: 16px;
+  }
+
+  .teaching-item .course-name {
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .teaching-item .course-meta {
+    font-size: 14.5px;
+    color: #666;
+  }
+
+  .photo-container {
+    margin: 32px 0;
+  }
+
+  .photo-container .placeholder {
+    width: 220px;
+    height: 280px;
+    background: #e8e6e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #999;
+  }
+
+  .cv-link {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border: 1.5px solid #1a5276;
+    border-radius: 4px;
+    color: #1a5276;
+    margin-top: 8px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .cv-link:hover {
+    background: #1a5276;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* --- MOBILE --- */
+  @media (max-width: 800px) {
+    .layout { flex-direction: column; }
+
+    .sidebar {
+      position: relative;
+      width: 100%;
+      min-width: unset;
+      padding: 28px 24px 20px;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar nav { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 0; }
+    .sidebar nav a { padding: 4px 0; }
+    .sidebar .contact { display: none; }
+
+    .main {
+      margin-left: 0;
+      padding: 32px 24px 60px;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Tanner Leighton</h1>
+    <div class="subtitle">Philosophy and Ethics of AI, Philosophy of Science, Pragmatism<br>PhD, University of Pittsburgh, Department of History and Philosophy of Science</div>
+
+    <nav>
+      <a href="file:///Users/tannerleighton/Downloads/academic-website%20(2).html#about" class="active" onclick="showPage(&#39;about&#39;)">About</a>
+      <a href="file:///Users/tannerleighton/Downloads/academic-website%20(2).html#research" onclick="showPage(&#39;research&#39;)">Research</a>
+      <a href="file:///Users/tannerleighton/Downloads/academic-website%20(2).html#teaching" onclick="showPage(&#39;teaching&#39;)">Teaching</a>
+      <a href="file:///Users/tannerleighton/Downloads/academic-website%20(2).html#cv" onclick="showPage(&#39;cv&#39;)">CV</a>
+    </nav>
+
+    <div class="contact">
+      <strong>Contact</strong><br>
+      <a href="mailto:tsleighton@pitt.edu">tsleighton@pitt.edu</a><br>
+      Minneapolis, MN
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <!-- ABOUT -->
+    <div id="about" class="page active">
+      <div class="photo-container">
+        <!-- Save your headshot as "photo.jpg" in the same folder as index.html -->
+        <img src="file:///Users/tannerleighton/Downloads/photo.jpg" alt="Tanner Leighton" style="width: 220px; border-radius: 4px;">
+      </div>
+
+      <p>
+        I am a philosopher working in the pragmatist tradition on the philosophy and ethics of artificial intelligence, with a secondary focus on the foundations of quantum theory. I received my PhD in History and Philosophy of Science from the University of Pittsburgh in February 2026, under the supervision of David Wallace.
+      </p>
+
+      <p>
+        My research develops <em>irenic pragmatism</em>—a methodologically conservative framework in the Rorty-Brandom-Price neo-pragmatist tradition—and applies it to foundational questions in the philosophy of technology and science. Using this approach, I diagnose entrenched disputes in the philosophy of AI, philosophy of language, and quantum foundations by separating shared practice-level commitments from further semantic or metaphysical overlays, and defend the adequacy of the resulting “core” pragmatist baseline. I develop a positive account of linguistic agency in large language models, diagnose accountability gaps that arise when AI systems are deployed in practice, and articulate a practice-anchored core interpretation of quantum theory.
+      </p>
+
+      <p>
+        I also hold a B.S. in Physics and Philosophy from the University of Minnesota and have programming experience in Python, C++, and MATLAB. I am originally from the Twin Cities and have since returned after completing my doctoral work at the University of Pittsburgh.
+      </p>
+    </div>
+
+    <!-- RESEARCH -->
+    <div id="research" class="page">
+      <h2>Publications</h2>
+
+      <div class="pub-item">
+        <div class="pub-title">“Quantum Theory and Novel Scientific Language: Defending a Pragmatist View.”</div>
+        <div class="pub-meta"><em>Philosophy of Science</em>, 2025. <a href="https://doi.org/10.1017/psa.2025.10128">https://doi.org/10.1017/psa.2025.10128</a></div>
+      </div>
+
+      <h2>Working Papers</h2>
+
+      <h3 style="font-family: &#39;Inter&#39;, sans-serif; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 12px; margin-top: 24px;">Under Review</h3>
+
+      <div class="pub-item">
+        <div class="pub-title">“Do LLMs Speak? Framework-Relativity and Linguistic Participation”</div>
+        <div class="pub-meta">Submitted to <em>Philosophy &amp; Technology</em></div>
+      </div>
+
+      <h3 style="font-family: &#39;Inter&#39;, sans-serif; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 12px; margin-top: 24px;">Drafts Available Upon Request</h3>
+
+      <div class="pub-item">
+        <div class="pub-title">“The Irenic Turn: Neo-Pragmatism Beyond Anti-Representationalism”</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">“Representationalism and Quantum Mechanics: An Irenic-Pragmatist View”</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">“Edwin C. Kemble, Pragmatism, and the American Reception of the Quantum”</div>
+      </div>
+
+      <h3 style="font-family: &#39;Inter&#39;, sans-serif; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 12px; margin-top: 24px;">In Progress</h3>
+
+      <div class="pub-item">
+        <div class="pub-title"><em>Machine Intelligence and Moral Responsibility: A Pragmatist Account</em> (book project)</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">“Consciousness, Deception, and the Governance of Misleading AI”</div>
+      </div>
+    </div>
+
+    <!-- TEACHING -->
+    <div id="teaching" class="page">
+      <h2>Teaching</h2>
+
+      <h2>University of Pittsburgh</h2>
+
+      <div class="teaching-item">
+        <div class="course-name">Introduction to Bioethics</div>
+        <div class="course-meta">Sole instructor of record · Three semesters</div>
+      </div>
+
+      <div class="teaching-item">
+        <div class="course-name">How Science Works</div>
+        <div class="course-meta">Sole instructor of record · Two semesters</div>
+      </div>
+
+      <h2>Prior Experience</h2>
+
+      <div class="teaching-item">
+        <div class="course-name">Cristo Rey Newark High School</div>
+        <div class="course-meta">Teaching experience prior to graduate study</div>
+      </div>
+    </div>
+
+    <!-- CV -->
+    <div id="cv" class="page">
+      <h2>Curriculum Vitae</h2>
+      <p>A PDF version of my CV is available for download:</p>
+      <a class="cv-link" href="file:///Users/tannerleighton/Downloads/academic-website%20(2).html#">Download CV (PDF) ↓</a>
+      <p style="margin-top: 24px; font-size: 14.5px; color: #888;">Replace the link above with a path to your CV file (e.g., <code>/cv.pdf</code>).</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Handle hash on load
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) showPage(hash);
+</script>
+
+
+
+</body></html>
